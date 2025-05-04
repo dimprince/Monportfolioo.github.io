@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <title>Portfolio Étudiant - Dim Prince</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Portfolio étudiant en première année de développement web">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Variables CSS */
+        :root {
+            --primary-color: #2b7a78;
+            --secondary-color: #3aafa9;
+            --dark-color: #17252a;
+            --light-color: #feffff;
+        }
+        
+        /* Styles personnalisés */
+        .hero-header {
+            background: linear-gradient(rgba(0,0,0,0.7), url('images/background.jpg');)
+            min-height: 100vh;
+            background-position: center;
+            background-size: cover;
+            background-attachment: fixed;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .skill-bar {
+            transition: width 2s ease-in-out;
+            height: 30px;
+            line-height: 30px;
+        }
+        
+        .project-card {
+            transition: all 0.3s ease;
+            height: 100%;
+        }
+        
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+        
+        .w3-modal-content {
+            max-width: 1000px;
+        }
+        
+        /* Animation */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        .animate-fade {
+            animation: fadeIn 1.5s ease-out;
+        }
+        
+        /* Responsive */
+        @media screen and (max-width: 600px) {
+            .hero-header {
+                min-height: 70vh;
+                background-attachment: scroll;
+            }
+            
+            .w3-display-middle h1 {
+                font-size: 2.5rem !important;
+            }
+        }
+        .project-card .overlay-text {
+    position:inherit;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: rgb(5, 5, 5)
+    font-size: 1.2rem;
+    text-align: center;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    cursor: pointer;
+}
+
+.project-card:hover .overlay-text {
+    opacity: 1;
+}
+        
+    </style>
+</head>
+<body class="w3-light-grey">
+
+<!-- Barre de navigation -->
+<div class="w3-top">
+    <div class="w3-bar w3-white w3-card w3-padding">
+        <a href="#home" class="w3-bar-item w3-button w3-wide"><i class="fas fa-laptop-code"></i> MON PORTFOLIO</a>
+        <!-- Liens droits -->
+        <div class="w3-right w3-hide-small">
+            <a href="#about" class="w3-bar-item w3-button">À PROPOS</a>
+            <a href="#projects" class="w3-bar-item w3-button">PROJETS</a>
+            <a href="#contact" class="w3-bar-item w3-button">CONTACT</a>
+        </div>
+        <!-- Menu mobile -->
+        <a href="javascript:void(0)" class="w3-bar-item w3-button w3-right w3-hide-large w3-hide-medium" onclick="changeMenu()">
+            <i class="fas fa-bars"></i>
+        </a>
+    </div>
+</div>
+
+<!-- Menu mobile caché -->
+<div id="mobileMenu" class="w3-bar-block w3-white w3-hide w3-hide-large w3-hide-medium w3-animate-top">
+    <a href="#about" class="w3-bar-item w3-button" onclick="changeMenu()">À PROPOS</a>
+    <a href="#projects" class="w3-bar-item w3-button" onclick="changeMenu()">PROJETS</a>
+    <a href="#contact" class="w3-bar-item w3-button" onclick="changeMenu()">CONTACT</a>
+</div>
+
+<!-- Section Accueil -->
+<header id="home" class="hero-header w3-display-container">
+    <div class="w3-display-middle w3-text-white w3-center animate-fade">
+        <div class="w3-padding-32">
+            <a href="#about" class="w3-button w3-white w3-padding-large w3-large w3-margin-top w3-opacity w3-hover-opacity-off">
+                <i class="fas fa-angle-double-down"></i> Découvrir
+            </a>
+        </div>
+    </div>
+    <a href="#about" class="w3-display-bottommiddle w3-text-white w3-xlarge" style="bottom:30px;">
+        <i class="fas fa-angle-double-down w3-animate-fading"></i>
+    </a>
+</header>
+
+<!-- Section À Propos -->
+<div id="about" class="w3-container w3-padding-64">
+    <div class="w3-content">
+        <h2 class="w3-center w3-padding-32">À PROPOS DE MOI</h2>
+        <h1 class="w3-xxlarge">JE SUIS <span class="w3-text-cyan" style="text-shadow: 2px 2px 4px #222121;">Dim Prince</span></h1>
+        <p class="w3-large">Étudiant en Développement Web</p>
+        
+        <div class="w3-row-padding">
+            <div class="w3-col m5">
+                <img src="https://i.postimg.cc/Qxt8P7k9/scan-photo.jpg" class="w3-round w3-image w3-card-4" alt="Photo de profil" style="width:50%">
+                <div class="w3-padding-16">
+                    <h3><b>Informations personnelles</b></h3>
+                    <p><i class="fas fa-birthday-cake w3-text-cyan"></i> <strong>Âge :</strong> 20 ans</p>
+                    <p><i class="fas fa-envelope w3-text-cyan"></i> <strong>Email :</strong> dim88200@gmail.com</p>
+                    <p><i class="fas fa-phone w3-text-cyan"></i> <strong>Téléphone :</strong> +237 6 95 57 47 07</p>
+                </div>
+            </div>
+            
+            <div class="w3-col m7 w3-padding-large">
+                <h3><b>Mon parcours</b></h3>
+                <p>Je suis actuellement étudiant en première année de licence informatique à l'Université Adventiste cosendai. Passionné par les technologies web depuis plusieurs années, j'ai décidé de me spécialiser dans ce domaine.</p>
+                
+                <h3 class="w3-padding-16"><b>Mes compétences techniques</b></h3>
+                
+                <div class="w3-row">
+                    <div class="w3-col s6 w3-padding-small">
+                        <p>HTML5</p>
+                        <div class="w3-light-grey">
+                            <div class="w3-container w3-cyan skill-bar" style="width:95%">90%</div>
+                        </div>
+                    </div>
+                    <div class="w3-col s6 w3-padding-small">
+                        <p>CSS3</p>
+                        <div class="w3-light-grey">
+                            <div class="w3-container w3-cyan skill-bar" style="width:85%">80%</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="w3-row">
+                    <div class="w3-col s6 w3-padding-small">
+                        <p>JavaScript</p>
+                        <div class="w3-light-grey">
+                            <div class="w3-container w3-cyan skill-bar" style="width:75%">75%</div>
+                        </div>
+                    </div>
+                    <div class="w3-col s6 w3-padding-small">
+                        <p>W3.CSS</p>
+                        <div class="w3-light-grey">
+                            <div class="w3-container w3-cyan skill-bar" style="width:90%">80%</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="w3-panel w3-light-grey w3-padding-16 w3-card">
+                    <h4><b>Formation</b></h4>
+                    <p><i class="fas fa-graduation-cap w3-text-cyan"></i> <strong>Licence Informatique</strong> - Université Aventiste cosendai (2024-2027)</p>
+                    <p><i class="fas fa-graduation-cap w3-text-cyan"></i> <strong>Baccalauréat Scientifique</strong> - Lycée Bilingue Njombe (2023)</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Section Projets -->
+<div id="projects" class="w3-container w3-padding-64 w3-light-grey">
+    <div class="w3-content">
+        <h2 class="w3-center w3-padding-32">MES PROJETS</h2>
+        <p class="w3-center w3-large">Découvrez mes réalisations académiques et personnelles</p>
+        
+        <div class="w3-row-padding" style="margin-top:64px">
+            <!-- Projet 1 -->
+            <div class="w3-col l4 m6 w3-margin-bottom">
+                <div class="w3-card project-card">
+                    <img src="https://i.postimg.cc/cHzKW30T/44b20b5505072f830f94e2d6f2019c28.jpg" alt="Projet 1" style="width: 100%;">
+                    <div class="w3-container">
+                        <h3><b>Site Vitrine</b></h3>
+                        <p>Création d'un site vitrine responsive pour un restaurant fictif.</p>
+                        <button class="w3-button w3-light-grey w3-block" onclick="openModal('modal1')">
+                            <i class="fas fa-eye"></i> Voir le projet
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Projet 2 -->
+            <div class="w3-col l4 m6 w3-margin-bottom">
+                <div class="w3-card project-card">
+                    <img src="https://i.postimg.cc/tgKTmj5m/modele-photo.jpg" alt="Projet 2" style="width:100%">
+                    <div class="w3-container">
+                        <h3><b>Portfolio Artistique</b></h3>
+                        <p>Design et développement d'un portfolio pour un photographe.</p>
+                        <button class="w3-button w3-light-grey w3-block" onclick="openModal('modal2')">
+                            <i class="fas fa-eye"></i> Voir le projet
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Projet 3 -->
+            <div class="w3-col l4 m6 w3-margin-bottom">
+                <div class="w3-card project-card">
+                    <img src="https://i.postimg.cc/J0qznBW9/6451381e7ea85.png" alt="Projet 3" style="width:100%">
+                    <div class="w3-container">
+                        <h3><b>Jeu en JavaScript</b></h3>
+                        <p>Développement d'un jeu de mémoire avec scores.</p>
+                        <button class="w3-button w3-light-grey w3-block" onclick="openModal('modal3')">
+                            <i class="fas fa-eye"></i> Voir le projet
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modals pour les projets -->
+<div id="modal1" class="w3-modal">
+    <div class="w3-modal-content w3-animate-zoom">
+        <div class="w3-container">
+            <span onclick="closeModalAndRedirect('modal1', 'https://www.Site Virtrine.com')" class="w3-button w3-display-topright w3-large w3-hover-red" title="Fermer et Visiter le site">&times;</span>
+            <h2 class="w3-padding-16">Site Vitrine pour Restaurant</h2>
+            <div class="w3-row">
+                <div class="w3-half">
+                    <img src="https://i.postimg.cc/cHzKW30T/44b20b5505072f830f94e2d6f2019c28.jpg" style="width:100%">
+                </div>
+                <div class="w3-half w3-padding">
+                    <p><strong>Technologies utilisées :</strong></p>
+                    <ul class="w3-ul">
+                        <li><i class="fab fa-html5 w3-text-cyan"></i> HTML5</li>
+                        <li><i class="fab fa-css3-alt w3-text-cyan"></i> W3.CSS</li>
+                        <li><i class="fab fa-js w3-text-cyan"></i> JavaScript</li>
+                    </ul>
+                    <p><strong>Fonctionnalités :</strong></p>
+                    <ul class="w3-ul">
+                        <li>Design responsive</li>
+                        <li>Galerie photo interactive</li>
+                        <li>Formulaire de réservation</li>
+                        <li>Carte Google Maps</li>
+                    </ul>
+                    <div class="w3-padding-16">
+                        <a href="#" class="w3-button w3-cyan"><i class="fas fa-external-link-alt"></i> Visiter le site</a>
+                        <a href="#" class="w3-button w3-light-grey"><i class="fab fa-github"></i> Code source</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+ <!-- Section dépliable Projet 2 -->
+ <div id="modal2" class="w3-modal">
+    <div class="w3-modal-content w3-animate-zoom">
+        <div class="w3-container">
+            <span onclick="closeModalAndRedirect('modal2', 'https://www.Portfolio Artistique')" class="w3-button w3-display-topright w3-large w3-hover-red" title="Fermer et Visiter le site">&times;</span>
+            <h2 class="w3-padding-16">Portfolio Artistique</h2>
+            <div class="w3-row">
+                <div class="w3-half">
+                    <img src="https://i.postimg.cc/tgKTmj5m/modele-photo.jpg" style="width:100%">
+                </div>
+                <div class="w3-half w3-padding">
+                    <p><strong>Technologies utilisées :</strong></p>
+                    <ul class="w3-ul">
+                        <li><i class="fab fa-html5 w3-text-cyan"></i> HTML5</li>
+                        <li><i class="fab fa-css3-alt w3-text-cyan"></i> W3.CSS</li>
+                        <li><i class="fab fa-js w3-text-cyan"></i> JavaScript</li>
+                    </ul>
+                    <p><strong>Fonctionnalités :</strong></p>
+                    <ul class="w3-ul">
+                        <li>Galerie filtrée par catégories</li>
+                        <li>Lightbox pour les images</li>
+                        <li>Formulaire de contact avec reCAPTCHA</li>
+                        <li>Page "À propos" animée</li>
+                    </ul>
+                    <div class="w3-padding-16">
+                        <a href="#" class="w3-button w3-cyan"><i class="fas fa-external-link-alt"></i> Visiter le site</a>
+                        <a href="#" class="w3-button w3-light-grey"><i class="fab fa-github"></i> Code source</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Section dépliable Projet 3 -->
+<div id="modal3" class="w3-modal">
+    <div class="w3-modal-content w3-animate-zoom">
+        <div class="w3-container">
+            <span onclick="closeModalAndRedirect('modal3', 'https://www.Jeu en Javascript.com')" class="w3-button w3-display-topright w3-large w3-hover-red" title="Fermer et Visiter le site">&times;</span>
+            <h2 class="w3-padding-16">Jeu en JavaScript</h2>
+            <div class="w3-row">
+                <div class="w3-half">
+                    <img src="https://i.postimg.cc/J0qznBW9/6451381e7ea85.png" style="width:100%">
+                </div>
+                <div class="w3-half w3-padding">
+                    <p><strong>Technologies utilisées :</strong></p>
+                    <ul class="w3-ul">
+                        <li><i class="fab fa-html5 w3-text-cyan"></i> HTML5</li>
+                        <li><i class="fab fa-css3-alt w3-text-cyan"></i> W3.CSS</li>
+                        <li><i class="fab fa-js w3-text-cyan"></i> JavaScript</li>
+                    </ul>
+                    <p><strong>Fonctionnalités :</strong></p>
+                    <ul class="w3-ul">
+                        <li>Système de score avec localStorage</li>
+                                    <li>Animation des cartes</li>
+                                    <li>Minuteur de jeu</li>
+                                    <li>Tableau des meilleurs scores</li>
+                    </ul>
+                    <div class="w3-padding-16">
+                        <a href="#" class="w3-button w3-cyan"><i class="fas fa-external-link-alt"></i> Visiter le site</a>
+                        <a href="#" class="w3-button w3-light-grey"><i class="fab fa-github"></i> Code source</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Section Contact -->
+<div id="contact" class="w3-container w3-padding-64">
+    <div class="w3-content">
+        <h2 class="w3-center w3-padding-32">CONTACTEZ-MOI</h2>
+        <p class="w3-center w3-large">Disponible pour des opportunités académiques ou professionnelles</p>
+        
+        <div class="w3-row-padding" style="margin-top:64px">
+            <div class="w3-half">
+                <form id="contactForm" onsubmit="submitForm(event)">
+                    <div class="w3-row-padding" style="margin:0 -16px 8px -16px">
+                        <div class="w3-half">
+                            <input class="w3-input w3-border" type="text" placeholder="Nom" required name="Nom">
+                        </div>
+                        <div class="w3-half">
+                            <input class="w3-input w3-border" type="email" placeholder="Email" required name="Email" id="emailField">
+                        </div>
+                    </div>
+                    <input class="w3-input w3-border" type="text" placeholder="Sujet" required name="Sujet">
+                    <textarea class="w3-input w3-border" placeholder="Message" required name="Message" style="height:150px"></textarea>
+                    <button type="submit" class="w3-button w3-black w3-right w3-section">
+                        <i class="fas fa-paper-plane"></i> ENVOYER MESSAGE
+                    </button>
+                </form>
+            </div>
+            <div class="w3-half">
+                <div class="w3-card">
+                    <iframe src="https://maps.google.com/maps?q=Douala&output=embed" 
+                        style="width:100%; height:400px; border:0" allowfullscreen></iframe>
+                </div>
+                <div class="w3-container w3-padding-16">
+                    <p><i class="fas fa-map-marker-alt fa-fw w3-xxlarge w3-margin-right"></i> Douala, Cameroun</p>
+                    <p><i class="fas fa-envelope fa-fw w3-xxlarge w3-margin-right"></i> dim88200@gmail.com</p>
+                    <p><i class="fas fa-phone fa-fw w3-xxlarge w3-margin-right"></i> +237 6 95 57 47 07</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Footer -->
+<footer class="w3-container w3-dark-grey w3-center w3-padding-25" >
+    <div class="w3-xlarge w3-section">
+        <a href="#" class="w3-hover-text-cyan w3-margin-right"><i class="fab fa-github"></i></a>
+        <a href="#" class="w3-hover-text-cyan w3-margin-right"><i class="fab fa-linkedin-in"></i></a>
+        <a href="#" class="w3-hover-text-cyan w3-margin-right"><i class="fab fa-twitter"></i></a>
+        <a href="#" class="w3-hover-text-cyan"><i class="fab fa-instagram"></i></a>
+    </div>
+    <p>© 2025 - Portfolio Étudiant - Tous droits réservés</p>
+    <p>Réalisé avec <i class="fas fa-heart w3-text-red"></i> en HTML, W3.CSS et JavaScript</p>
+    <p class="w3-small">Dernière mise à jour : <span id="lastUpdate"></span></p>
+</footer>
+
+<script>
+// Fonctions JavaScript
+let menuOpen = false;
+
+// Menu mobile
+function changeMenu() {
+    const menu = document.getElementById("mobileMenu");
+    menuOpen = !menuOpen;
+    menu.style.display = menuOpen ? "block" : "none";
+}
+
+// Gestion des modals
+function openModal(modalId) {
+    document.getElementById(modalId).style.display = "block";
+}
+
+function closeModalAndRedirect(modalId , redirectUrl) {
+    document.getElementById(modalId).style.display = "none";
+}
+
+// Validation du formulaire
+function submitForm(event) {
+    event.preventDefault();
+    const email = document.getElementById("emailField").value;
+    
+    // Validation basique
+    if (!email.includes("@") || !email.includes(".")) {
+        alert("Veuillez entrer une adresse email valide !");
+        return false;
+    }
+    
+    // Simulation d'envoi
+    alert("Message envoyé avec succès ! Je vous répondrai dès que possible.");
+    document.getElementById("contactForm").reset();
+    
+    // Sauvegarde dans localStorage
+    localStorage.setItem("lastContact", new Date().toLocaleString());
+    
+    return true;
+}
+
+// Animation des compétences au scroll
+window.addEventListener('scroll', function() {
+    const skills = document.querySelectorAll(".skill-bar");
+    const windowHeight = window.innerHeight;
+    
+    skills.forEach(skill => {
+        const skillPosition = skill.getBoundingClientRect().top;
+        if (skillPosition < windowHeight - 100) {
+            skill.style.width = skill.innerHTML;
+        }
+    });
+});
+
+// Date de dernière mise à jour
+document.getElementById("lastUpdate").textContent = new Date().toLocaleDateString('fr-FR', {
+    day: '2-digit',
+    month: 'long',
+    year: 'numeric'
+});
+
+// Fermer les modals en cliquant à l'extérieur
+window.onclick = function(event) {
+    if (event.target.className === 'w3-modal') {
+        event.target.style.display = 'none';
+    }
+}
+
+// Initialisation
+document.addEventListener("DOMContentLoaded", function() {
+    // Vérifier localStorage pour la dernière visite
+    const lastVisit = localStorage.getItem("lastVisit");
+    if (lastVisit) {
+        console.log("Dernière visite : " + lastVisit);
+    } else {
+        console.log("Première visite !");
+    }
+    localStorage.setItem("lastVisit", new Date().toLocaleString());
+    
+    // Activer les animations après le chargement
+    setTimeout(() => {
+        document.querySelectorAll('.animate-fade').forEach(el => {
+            el.style.opacity = 1;
+        });
+    }, 300);
+});
+</script>
+
+</body>
+</html>
